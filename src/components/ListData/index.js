@@ -7,7 +7,6 @@ import InputData from '../InputData'
 import './index.scss';
 
 const ListData = data => {
-  
   const [isOpenMsg, setIsOpenMsg] = useState(false)
   return (
     <div className="listData">
@@ -28,11 +27,11 @@ const ListData = data => {
           <div className="chat-logs">
             {
               data.listMsg?.map( (msg, i) =>
-                <div key={i} id={`cm-msg-${(i+1)}`} className="chat-msg self">
-                  <span class="msg-avatar">
+                <div key={i} id={`cm-msg-${(i+1)}`} className={classnames('chat-msg', { self: msg.user==='user1' }, { user: msg.user==='user2' })}>
+                  <span className="msg-avatar">
                     <FontAwesomeIcon className="icon" icon={faUser} size="3x" />
                   </span>
-                  <div class="cm-msg-text">{msg?.props.children}</div>
+                  <div className="cm-msg-text">{msg?.text}</div>
                 </div>
               )
             }
