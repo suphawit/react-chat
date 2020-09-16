@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import InputData from './InputData'
-import ListData from './ListData'
+import React, { useState } from 'react'
 import * as firebase from 'firebase'
+import ListData from './components/ListData'
 import { Config } from './Config'
+
+import './App.scss';
+
 firebase.initializeApp(Config)
 
 const useConstructor = (callBack = () => {}) => {
@@ -32,12 +34,14 @@ const App = () => {
   }
   
   return (
-    <div className="container">
+    <div className="app container">
       <ListData
-          listMsg = {listMsg.map( msg => <p>{msg.message}</p>)} />
-      <InputData 
-          onClickButtonHandler = {onClickButtonHandlerData}
+        listMsg = {listMsg.map( msg => <p>{msg.message}</p>)} 
+        onClickButtonHandlerData = {onClickButtonHandlerData}
       />
+      {/* <InputData 
+        onClickButtonHandler = {onClickButtonHandlerData}
+      /> */}
     </div>
   );
 }

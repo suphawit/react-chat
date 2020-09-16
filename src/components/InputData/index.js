@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './index.scss';
 
 const InputData = props => {
     const [msg, setMsg] = useState('')
@@ -15,7 +16,10 @@ const InputData = props => {
                     placeholder="Type your message here..." />
                     <span className="input-group-btn">
                     <button className="btn btn-primary btn-sm" 
-                        onClick={() => { props.onClickButtonHandler(msg) }}
+                        onClick={() => {
+                            props.onClickButtonHandler(msg)
+                            setMsg('')
+                        }}
                         id="btn-chat">
                         Send</button>
                 </span>
