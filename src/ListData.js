@@ -1,19 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-function ListData() {
-    return(
-       <div className="panel-body" >
-            <p>
-                text1
-           </p>
-           <p>
-                text2
-           </p>
-           <p>
-                text3
-           </p>
-       </div>
-    )
-}
+const ListData = data => 
+    <div style={{ marginTop:10 }}>
+          {
+               data.listMsg?.map( (msg, i) =>{
+                    return <p key = { i }>{ msg?.props.children }</p>
+               }) 
+          }
+     </div>     
 
 export default ListData
